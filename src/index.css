@@ -1,0 +1,97 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
+All colors MUST be HSL.
+*/
+
+@layer base {
+  :root {
+    --background: 222 47% 4%;
+    --foreground: 180 100% 90%;
+
+    --card: 222 47% 6%;
+    --card-foreground: 180 100% 90%;
+
+    --popover: 222 47% 5%;
+    --popover-foreground: 180 100% 90%;
+
+    --primary: 187 100% 50%;
+    --primary-foreground: 222 47% 4%;
+
+    --secondary: 222 47% 12%;
+    --secondary-foreground: 180 100% 90%;
+
+    --muted: 222 47% 10%;
+    --muted-foreground: 180 20% 60%;
+
+    --accent: 187 100% 50%;
+    --accent-foreground: 222 47% 4%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+
+    --success: 142 76% 36%;
+    --success-foreground: 0 0% 100%;
+
+    --warning: 38 92% 50%;
+    --warning-foreground: 222 47% 4%;
+
+    --border: 222 47% 15%;
+    --input: 222 47% 12%;
+    --ring: 187 100% 50%;
+
+    --radius: 0.75rem;
+
+    --cyber-glow: 187 100% 50%;
+    --danger-glow: 0 84% 60%;
+    --success-glow: 142 76% 36%;
+  }
+
+  .dark {
+    --background: 222 47% 4%;
+    --foreground: 180 100% 90%;
+
+    --card: 222 47% 6%;
+    --card-foreground: 180 100% 90%;
+
+    --popover: 222 47% 5%;
+    --popover-foreground: 180 100% 90%;
+
+    --primary: 187 100% 50%;
+    --primary-foreground: 222 47% 4%;
+
+    --secondary: 222 47% 12%;
+    --secondary-foreground: 180 100% 90%;
+
+    --muted: 222 47% 10%;
+    --muted-foreground: 180 20% 60%;
+
+    --accent: 187 100% 50%;
+    --accent-foreground: 222 47% 4%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+
+    --success: 142 76% 36%;
+    --success-foreground: 0 0% 100%;
+
+    --warning: 38 92% 50%;
+    --warning-foreground: 222 47% 4%;
+
+    --border: 222 47% 15%;
+    --input: 222 47% 12%;
+    --ring: 187 100% 50%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+  }
+}
