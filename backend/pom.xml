@@ -95,6 +95,7 @@
 				</configuration>
 			</plugin>
 		</plugins>
+		<finalName>findmyleak</finalName>
 	</build>
 
 </project>

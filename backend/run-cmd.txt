@@ -1,0 +1,6 @@
+
+✔ Build Command
+./mvnw clean package
+
+✔ Start Command
+java -jar target/findmyleak.jar

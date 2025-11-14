@@ -1,6 +1,10 @@
+import { config } from './config';
+
 // API Configuration
 export const API_CONFIG = {
-  BASE_URL: 'http://localhost:8080',
+  BASE_URL: config.API_BASE_URL,
+  USERNAME: config.API_USERNAME,
+  PASSWORD: config.API_PASSWORD,
   ENDPOINTS: {
     SCAN: '/api/scan',
     DELETE_REQUEST: '/api/delete-request'
@@ -14,7 +18,7 @@ export const apiCall = async (endpoint: string, options: RequestInit = {}) => {
   const defaultOptions: RequestInit = {
     headers: {
       'Content-Type': 'application/json',
-      'Authorization': 'Basic ' + btoa('vikas:vikas123'),
+      'Authorization': 'Basic ' + btoa(`${API_CONFIG.USERNAME}:${API_CONFIG.PASSWORD}`),
     },
     ...options,
   };
@@ -24,7 +28,12 @@ export const apiCall = async (endpoint: string, options: RequestInit = {}) => {
     const data = await response.json();
 
     if (!response.ok) {
-      throw new Error(data.message || `HTTP error! status: ${response.status}`);
+      // Include more detailed error information
+      const error = new Error(data.message || `HTTP error! status: ${response.status}`);
+      (error as any).status = response.status;
+      (error as any).statusText = response.statusText;
+      (error as any).externalStatusCode = data.externalStatusCode;
+      throw error;
     }
 
     return data;

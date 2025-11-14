@@ -1,0 +1,17 @@
+Runs a local dev server
+✔ npm run dev
+
+
+Creates a production build
+✔ npm run build
+
+
+
+
+
+Build Command and dependency install:
+npm install && npm run build
+
+
+Publish Directory:
+dist
