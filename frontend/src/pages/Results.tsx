@@ -52,10 +52,18 @@ const Results = () => {
         if (data.List) {
           // Transform API data to breach format
           const transformedBreaches: BreachData[] = Object.entries(data.List).map(([name, breach]) => {
-            // Extract data types from the first data entry
-            const dataTypes = breach.Data.length > 0 
-              ? Object.keys(breach.Data[0]).filter(key => key !== 'RegDate' && key !== 'LastActive')
-              : [];
+            // Collect all unique field names from all data entries in this breach
+            const allFields = new Set<string>();
+            breach.Data.forEach(entry => {
+              Object.keys(entry).forEach(key => {
+                // Exclude common metadata/timestamp fields that aren't "compromised data"
+                if (!['RegDate', 'LastActive', 'CreatedAt', 'UpdatedAt', 'Timestamp'].includes(key)) {
+                  allFields.add(key);
+                }
+              });
+            });
+            
+            const dataTypes = Array.from(allFields).sort();
 
             return {
               name,
@@ -228,13 +236,42 @@ const Results = () => {
                   <CollapsibleContent>
                     <div className="px-6 pb-6 border-t border-border/50 pt-4">
                       <p className="text-muted-foreground mb-4 text-sm leading-relaxed">{breach.description}</p>
-                      <div>
+                      
+                      <div className="mb-6">
                         <h4 className="text-sm font-semibold text-foreground mb-2">Compromised Data Types:</h4>
                         <div className="flex flex-wrap gap-2">
                           {breach.dataTypes.map((type) => (
                             <Badge key={type} variant="secondary">
                               {type}
                             </Badge>
+                          ))}
+                        </div>
+                      </div>
+
+                      <div>
+                        <h4 className="text-sm font-semibold text-foreground mb-3">Your Leaked Data:</h4>
+                        <div className="space-y-3">
+                          {breach.data.map((record, recordIndex) => (
+                            <Card key={recordIndex} className="p-4 bg-destructive/5 border-destructive/20">
+                              <div className="grid grid-cols-1 md:grid-cols-2 gap-3 text-sm">
+                                {Object.entries(record).map(([key, value]) => {
+                                  // Skip metadata fields
+                                  if (['RegDate', 'LastActive', 'CreatedAt', 'UpdatedAt', 'Timestamp'].includes(key)) {
+                                    return null;
+                                  }
+                                  return (
+                                    <div key={key} className="flex flex-col">
+                                      <span className="text-muted-foreground text-xs uppercase tracking-wide mb-1">
+                                        {key}
+                                      </span>
+                                      <span className="text-foreground font-mono text-sm break-all">
+                                        {String(value)}
+                                      </span>
+                                    </div>
+                                  );
+                                })}
+                              </div>
+                            </Card>
                           ))}
                         </div>
                       </div>

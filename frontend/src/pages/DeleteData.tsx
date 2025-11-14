@@ -7,6 +7,7 @@ import { Card } from "@/components/ui/card";
 import { Label } from "@/components/ui/label";
 import { Trash2 } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
+import { submitDeleteRequest } from "@/lib/api";
 
 const DeleteData = () => {
   const navigate = useNavigate();
@@ -16,8 +17,9 @@ const DeleteData = () => {
     contact: "",
     reason: "",
   });
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     
     if (!formData.name || !formData.contact) {
@@ -29,15 +31,43 @@ const DeleteData = () => {
       return;
     }
 
-    // Simulate submission
-    toast({
-      title: "Request Submitted",
-      description: "Your data deletion request has been received.",
-    });
+    setIsSubmitting(true);
 
-    setTimeout(() => {
-      navigate("/success");
-    }, 1500);
+    try {
+      // Determine if contact is email or phone
+      const isEmail = formData.contact.includes('@');
+      
+      const requestData = {
+        fullName: formData.name,
+        email: isEmail ? formData.contact : undefined,
+        phone: isEmail ? undefined : formData.contact,
+        reason: formData.reason || undefined,
+      };
+
+      const result = await submitDeleteRequest(requestData);
+
+      if (result.success) {
+        toast({
+          title: "Request Submitted",
+          description: `Your data deletion request has been received. Request ID: ${result.requestId}`,
+        });
+
+        setTimeout(() => {
+          navigate("/success");
+        }, 1500);
+      } else {
+        throw new Error(result.message || "Failed to submit request");
+      }
+    } catch (error) {
+      console.error("Error submitting delete request:", error);
+      toast({
+        title: "Submission Failed",
+        description: error instanceof Error ? error.message : "Please try again later.",
+        variant: "destructive",
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -111,10 +141,14 @@ const DeleteData = () => {
               </div>
 
               <div className="flex gap-4">
-                <Button type="submit" className="flex-1 bg-destructive hover:bg-destructive/90 text-destructive-foreground">
-                  Submit Request
+                <Button 
+                  type="submit" 
+                  className="flex-1 bg-destructive hover:bg-destructive/90 text-destructive-foreground"
+                  disabled={isSubmitting}
+                >
+                  {isSubmitting ? "Submitting..." : "Submit Request"}
                 </Button>
-                <Button type="button" variant="outline" onClick={() => navigate(-1)}>
+                <Button type="button" variant="outline" onClick={() => navigate(-1)} disabled={isSubmitting}>
                   Cancel
                 </Button>
               </div>

@@ -1,0 +1,55 @@
+{
+  "List": {
+    "BoAtLifestyleIndia": {
+      "Data": [
+        {
+          "Amount": "0.00",
+          "CountOrders": "0",
+          "Email": "gdfgfga@gmail.com",
+          "FirstName": "vishnu retg",
+          "LastActive": "2023-06-25T02:07:39+05:30",
+          "Phone": "917666677418",
+          "RegDate": "2023-06-25T02:07:28+05:30",
+          "Tags": "Created an account"
+        }
+      ],
+      "InfoLeak": "Boat is a large company in India, which sells electronic gadgets oriented on audio, such as wireless speakers, wired and wireless headphones, home audio equipment, cables and a number of other technological accessories. In March 2024, the hacker announced Boat Lifestyle's hacking. The attacker leaked the data hacking files with access to personal information of customers, which contains 7.5 million records. Data contains mail, names, phone numbers, physical addresses, purchases and activity on the website.",
+      "NumOfResults": 1
+    },
+    "HiTeckGroop.in": {
+      "Data": [
+        {
+          "Address": "s/o 456t,Madhya Pradesh,455001",
+          "Address2": "rtyr 565,Madhya Pradesh,455001 ",
+          "DocNumber": "456546546546546",
+          "FatherName": "Auuun 655",
+          "FullName": "ghfghfbgh ",
+          "Phone":  "90000000418",
+          "Phone2": "91111111166",
+          "Phone3": "91555555575",
+          "Region": "JIO MP"
+        }
+      ],
+      "InfoLeak": "At the beginning of 2025, a huge leak with the data of Indian cellular operators began to spread on the network. The HITECKGROOP website is declared as a source, but this information is unverified. The data contains 1.8 billion records, however, the number of unique users below, about 300 million. Each record indicated the full name, the name of the father, and the number of the document. Most often this is the Aadhaar number, but the taxpayer’s passports or numbers were also found. There were up to two phones in each line, however, since several records had several records for one user, the total number of well -known phones sometimes reached several tens. Some records also had nicknames and emails.",
+      "NumOfResults": 1
+    },
+    "TrueCaller India": {
+      "Data": [
+        {
+          "Address": "Madhya Pradesh ",
+          "FullName": "giu Di",
+          "IndianState": "Madhya Pradesh",
+          "MobileOperator": "Idea Cellular",
+          "Phone": "917750000008"
+        }
+      ],
+      "InfoLeak": "In February 2019, “The best application for identifying the provocative subscriber and spam blocking” TrueCaller was leaked to data from which 286 million Indian users suffered. Phones, telephone operators, full names, gender, location, positions of companies, mail, websites, Facebook identifiers and Twitter users' names were disclosed.",
+      "NumOfResults": 1
+    }
+  },
+  "NumOfDatabase": 3,
+  "NumOfResults": 3,
+  "free_requests_left": 99,
+  "price": 0,
+  "search time": 0.0
+}

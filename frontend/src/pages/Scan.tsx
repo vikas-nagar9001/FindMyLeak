@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { useSearchParams, useNavigate } from "react-router-dom";
+import { scanForLeaks } from "@/lib/api";
 
 const Scan = () => {
   const [searchParams] = useSearchParams();
@@ -25,23 +26,8 @@ const Scan = () => {
           });
         }, 100);
 
-        // Call the API
-        const response = await fetch("https://leakosintapi.com", {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify({
-            token: "2025554973:eM70XV22",
-            request: query,
-          }),
-        });
-
-        if (!response.ok) {
-          throw new Error("API request failed");
-        }
-
-        const data = await response.json();
+        // Call the backend API using the helper function
+        const data = await scanForLeaks(query);
         
         // Complete progress
         setProgress(100);
@@ -55,8 +41,20 @@ const Scan = () => {
       } catch (error) {
         console.error("Error fetching leak data:", error);
         clearInterval(interval);
-        // Navigate anyway to show error state
-        sessionStorage.setItem("leakResults", JSON.stringify({ error: true }));
+        
+        // Capture detailed error information
+        const errorInfo = {
+          error: true,
+          message: error instanceof Error ? error.message : 'Unknown error occurred',
+          timestamp: new Date().toISOString(),
+          query: query,
+          type: error instanceof TypeError ? 'Network Error' : 'API Error'
+        };
+        
+        console.log("Storing error info:", errorInfo);
+        
+        // Navigate anyway to show error state with detailed info
+        sessionStorage.setItem("leakResults", JSON.stringify(errorInfo));
         setTimeout(() => {
           navigate(`/results?query=${encodeURIComponent(query)}`);
         }, 500);
