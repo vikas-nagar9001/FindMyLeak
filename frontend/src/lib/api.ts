@@ -1,10 +1,6 @@
-import { config } from './config';
-
 // API Configuration
 export const API_CONFIG = {
-  BASE_URL: config.API_BASE_URL,
-  USERNAME: config.API_USERNAME,
-  PASSWORD: config.API_PASSWORD,
+  BASE_URL: 'https://findmyleak.onrender.com',
   ENDPOINTS: {
     SCAN: '/api/scan',
     DELETE_REQUEST: '/api/delete-request'
@@ -18,7 +14,7 @@ export const apiCall = async (endpoint: string, options: RequestInit = {}) => {
   const defaultOptions: RequestInit = {
     headers: {
       'Content-Type': 'application/json',
-      'Authorization': 'Basic ' + btoa(`${API_CONFIG.USERNAME}:${API_CONFIG.PASSWORD}`),
+      'Authorization': 'Basic ' + btoa('vikas:vikas123'),
     },
     ...options,
   };
@@ -28,12 +24,7 @@ export const apiCall = async (endpoint: string, options: RequestInit = {}) => {
     const data = await response.json();
 
     if (!response.ok) {
-      // Include more detailed error information
-      const error = new Error(data.message || `HTTP error! status: ${response.status}`);
-      (error as any).status = response.status;
-      (error as any).statusText = response.statusText;
-      (error as any).externalStatusCode = data.externalStatusCode;
-      throw error;
+      throw new Error(data.message || `HTTP error! status: ${response.status}`);
     }
 
     return data;
