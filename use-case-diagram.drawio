@@ -1,0 +1,198 @@
+<mxfile host="app.diagrams.net" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/142.0.0.0 Safari/537.36" version="29.2.2">
+  <diagram name="FindMyLeak Use Case Diagram" id="use-case-findmyleak">
+    <mxGraphModel dx="1246" dy="616" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1600" pageHeight="1200" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="system" parent="1" style="swimlane;whiteSpace=wrap;html=1;fillColor=#e1f5fe;strokeColor=#01579b;fontSize=16;fontStyle=1" value="FindMyLeak System" vertex="1">
+          <mxGeometry height="1000" width="1200" x="200" y="80" as="geometry" />
+        </mxCell>
+        <mxCell id="frontend-box" parent="system" style="swimlane;whiteSpace=wrap;html=1;fillColor=#E8F5E9;strokeColor=#2E7D32;fontSize=14;fontStyle=1" value="Frontend Layer (React)" vertex="1">
+          <mxGeometry height="320" width="480" x="30" y="40" as="geometry" />
+        </mxCell>
+        <mxCell id="uc1" parent="frontend-box" style="ellipse;whiteSpace=wrap;html=1;fillColor=#66BB6A;strokeColor=#2E7D32;fontSize=12;fontStyle=1" value="Search for&#xa;Data Breach" vertex="1">
+          <mxGeometry height="80" width="150" x="50" y="50" as="geometry" />
+        </mxCell>
+        <mxCell id="uc2" parent="frontend-box" style="ellipse;whiteSpace=wrap;html=1;fillColor=#66BB6A;strokeColor=#2E7D32;fontSize=12;fontStyle=1" value="View Breach&#xa;Results" vertex="1">
+          <mxGeometry height="80" width="150" x="270" y="50" as="geometry" />
+        </mxCell>
+        <mxCell id="uc3" parent="frontend-box" style="ellipse;whiteSpace=wrap;html=1;fillColor=#66BB6A;strokeColor=#2E7D32;fontSize=12;fontStyle=1" value="Request Data&#xa;Deletion" vertex="1">
+          <mxGeometry height="80" width="150" x="50" y="160" as="geometry" />
+        </mxCell>
+        <mxCell id="uc4" parent="frontend-box" style="ellipse;whiteSpace=wrap;html=1;fillColor=#66BB6A;strokeColor=#2E7D32;fontSize=12" value="Navigate&#xa;Pages" vertex="1">
+          <mxGeometry height="80" width="150" x="270" y="160" as="geometry" />
+        </mxCell>
+        <mxCell id="backend-box" parent="system" style="swimlane;whiteSpace=wrap;html=1;fillColor=#FFF3E0;strokeColor=#E65100;fontSize=14;fontStyle=1" value="Backend Layer (Spring Boot + OSINT Framework)" vertex="1">
+          <mxGeometry height="450" width="580" x="570" y="40" as="geometry" />
+        </mxCell>
+        <mxCell id="uc6" parent="backend-box" style="ellipse;whiteSpace=wrap;html=1;fillColor=#FFB74D;strokeColor=#E65100;fontSize=12;fontStyle=1" value="Process Scan&#xa;Request" vertex="1">
+          <mxGeometry height="75" width="140" x="40" y="50" as="geometry" />
+        </mxCell>
+        <mxCell id="uc7" parent="backend-box" style="ellipse;whiteSpace=wrap;html=1;fillColor=#FFB74D;strokeColor=#E65100;fontSize=12;fontStyle=1" value="Execute OSINT&#xa;Scan Framework" vertex="1">
+          <mxGeometry height="75" width="140" x="400" y="50" as="geometry" />
+        </mxCell>
+        <mxCell id="uc8" parent="backend-box" style="ellipse;whiteSpace=wrap;html=1;fillColor=#FFB74D;strokeColor=#E65100;fontSize=12;fontStyle=1" value="Check Cache&#xa;(&lt; 1 hour)" vertex="1">
+          <mxGeometry height="75" width="140" x="220" y="50" as="geometry" />
+        </mxCell>
+        <mxCell id="uc9" parent="backend-box" style="ellipse;whiteSpace=wrap;html=1;fillColor=#FFB74D;strokeColor=#E65100;fontSize=12;fontStyle=1" value="Save Breach&#xa;Data" vertex="1">
+          <mxGeometry height="75" width="140" x="400" y="160" as="geometry" />
+        </mxCell>
+        <mxCell id="uc10" parent="backend-box" style="ellipse;whiteSpace=wrap;html=1;fillColor=#FFB74D;strokeColor=#E65100;fontSize=12" value="Log Search&#xa;History" vertex="1">
+          <mxGeometry height="75" width="140" x="220" y="160" as="geometry" />
+        </mxCell>
+        <mxCell id="uc11" parent="backend-box" style="ellipse;whiteSpace=wrap;html=1;fillColor=#FFB74D;strokeColor=#E65100;fontSize=12;fontStyle=1" value="Process Delete&#xa;Request" vertex="1">
+          <mxGeometry height="75" width="140" x="40" y="270" as="geometry" />
+        </mxCell>
+        <mxCell id="uc12" parent="backend-box" style="ellipse;whiteSpace=wrap;html=1;fillColor=#FFB74D;strokeColor=#E65100;fontSize=12;fontStyle=1" value="Manage Delete&#xa;Requests" vertex="1">
+          <mxGeometry height="75" width="140" x="220" y="270" as="geometry" />
+        </mxCell>
+        <mxCell id="uc13" parent="backend-box" style="ellipse;whiteSpace=wrap;html=1;fillColor=#FFB74D;strokeColor=#E65100;fontSize=12" value="Return Cached&#xa;Results" vertex="1">
+          <mxGeometry height="75" width="140" x="40" y="160" as="geometry" />
+        </mxCell>
+        <mxCell id="db-box" parent="system" style="swimlane;whiteSpace=wrap;html=1;fillColor=#FCE4EC;strokeColor=#880E4F;fontSize=14;fontStyle=1" value="MongoDB Database" vertex="1">
+          <mxGeometry height="280" width="480" x="620" y="540" as="geometry" />
+        </mxCell>
+        <mxCell id="uc14" parent="db-box" style="ellipse;whiteSpace=wrap;html=1;fillColor=#F48FB1;strokeColor=#880E4F;fontSize=12" value="Store Breach&#xa;Records" vertex="1">
+          <mxGeometry height="70" width="130" x="50" y="60" as="geometry" />
+        </mxCell>
+        <mxCell id="uc15" parent="db-box" style="ellipse;whiteSpace=wrap;html=1;fillColor=#F48FB1;strokeColor=#880E4F;fontSize=12" value="Store Search&#xa;History" vertex="1">
+          <mxGeometry height="70" width="130" x="220" y="60" as="geometry" />
+        </mxCell>
+        <mxCell id="uc16" parent="db-box" style="ellipse;whiteSpace=wrap;html=1;fillColor=#F48FB1;strokeColor=#880E4F;fontSize=12" value="Store Delete&#xa;Requests" vertex="1">
+          <mxGeometry height="70" width="130" x="135" y="160" as="geometry" />
+        </mxCell>
+        <mxCell id="note4" parent="system" style="shape=note;whiteSpace=wrap;html=1;backgroundOutline=1;darkOpacity=0.05;fillColor=#F8BBD0;strokeColor=#880E4F;fontSize=11;align=left" value="&lt;b&gt;MongoDB Collections:&lt;/b&gt;&lt;br&gt;• breach_data&lt;br&gt;• search_history&lt;br&gt;• delete_requests" vertex="1">
+          <mxGeometry height="100" width="160" x="1040" y="840" as="geometry" />
+        </mxCell>
+        <mxCell id="user" parent="1" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;fillColor=#4A90E2;strokeColor=#1976D2;fontSize=14;fontStyle=1" value="User" vertex="1">
+          <mxGeometry height="120" width="60" x="60" y="350" as="geometry" />
+        </mxCell>
+        <mxCell id="admin" parent="1" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;fillColor=#E67E22;strokeColor=#D35400;fontSize=14;fontStyle=1" value="Admin" vertex="1">
+          <mxGeometry height="120" width="60" x="60" y="750" as="geometry" />
+        </mxCell>
+        <mxCell id="osint" parent="1" style="shape=cylinder3;whiteSpace=wrap;html=1;boundedLbl=1;backgroundOutline=1;size=15;fillColor=#9B59B6;strokeColor=#6C3483;fontSize=14;fontStyle=1;fontColor=#FFFFFF" value="Breach&#xa;Databases&#xa;&amp; OSINT&#xa;Sources" vertex="1">
+          <mxGeometry height="140" width="100" x="1475" y="380" as="geometry" />
+        </mxCell>
+        <mxCell id="edge1" edge="1" parent="1" source="user" style="endArrow=none;html=1;strokeWidth=2;strokeColor=#4A90E2" target="uc1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="edge2" edge="1" parent="1" source="user" style="endArrow=none;html=1;strokeWidth=2;strokeColor=#4A90E2" target="uc2">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="edge3" edge="1" parent="1" source="user" style="endArrow=none;html=1;strokeWidth=2;strokeColor=#4A90E2" target="uc3">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="edge4" edge="1" parent="1" source="user" style="endArrow=none;html=1;strokeWidth=2;strokeColor=#4A90E2" target="uc4">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="edge5" edge="1" parent="1" source="admin" style="endArrow=none;html=1;strokeWidth=2;strokeColor=#E67E22" target="uc12">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="edge6" edge="1" parent="1" source="uc1" style="endArrow=open;html=1;strokeWidth=2;strokeColor=#2E7D32;dashed=1;dashPattern=5 5;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0" target="uc6">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint as="offset" />
+            <mxPoint x="400" y="200" as="sourcePoint" />
+            <mxPoint x="500" y="200" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="edge6-label" connectable="0" parent="edge6" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontSize=10;fontColor=#2E7D32;fontStyle=1" value="POST /api/scan" vertex="1">
+          <mxGeometry relative="1" x="0.1" y="2" as="geometry">
+            <mxPoint x="-10" y="-12" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="edge7" edge="1" parent="1" source="uc3" style="endArrow=open;html=1;strokeWidth=2;strokeColor=#2E7D32;dashed=1;dashPattern=5 5" target="uc11">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="edge7-label" connectable="0" parent="edge7" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontSize=10;fontColor=#2E7D32;fontStyle=1" value="POST /api/delete-request" vertex="1">
+          <mxGeometry relative="1" x="0.1" y="2" as="geometry">
+            <mxPoint x="-10" y="-12" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="edge8" edge="1" parent="1" source="uc6" style="endArrow=classic;html=1;strokeWidth=2;strokeColor=#E65100" target="uc8">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="edge9" edge="1" parent="1" source="uc8" style="endArrow=classic;html=1;strokeWidth=2;strokeColor=#E65100;dashed=1;dashPattern=5 5" target="uc7">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="edge9-label" connectable="0" parent="edge9" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontSize=10;fontColor=#E65100" value="If not cached" vertex="1">
+          <mxGeometry relative="1" x="0.1" y="2" as="geometry">
+            <mxPoint y="-12" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="edge10" edge="1" parent="1" source="uc8" style="endArrow=classic;html=1;strokeWidth=2;strokeColor=#E65100" target="uc13">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="edge10-label" connectable="0" parent="edge10" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontSize=10;fontColor=#E65100" value="If cached" vertex="1">
+          <mxGeometry relative="1" x="0.1" y="2" as="geometry">
+            <mxPoint y="-12" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="edge11" edge="1" parent="1" source="uc7" style="endArrow=none;html=1;strokeWidth=2;strokeColor=#9B59B6" target="osint">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="edge11-label" connectable="0" parent="edge11" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontSize=10;fontColor=#9B59B6;fontStyle=1" value="API Call" vertex="1">
+          <mxGeometry relative="1" x="0.1" y="2" as="geometry">
+            <mxPoint y="-12" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="edge12" edge="1" parent="1" source="uc7" style="endArrow=classic;html=1;strokeWidth=2;strokeColor=#E65100" target="uc9">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="edge13" edge="1" parent="1" source="uc6" style="endArrow=classic;html=1;strokeWidth=2;strokeColor=#E65100" target="uc10">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="edge14" edge="1" parent="1" source="uc9" style="endArrow=classic;html=1;strokeWidth=2;strokeColor=#880E4F" target="uc14">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="edge15" edge="1" parent="1" source="uc10" style="endArrow=classic;html=1;strokeWidth=2;strokeColor=#880E4F" target="uc15">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="edge16" edge="1" parent="1" source="uc11" style="endArrow=classic;html=1;strokeWidth=2;strokeColor=#880E4F" target="uc16">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="edge17" edge="1" parent="1" source="uc12" style="endArrow=classic;html=1;strokeWidth=2;strokeColor=#880E4F" target="uc16">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="edge18" edge="1" parent="1" source="uc13" style="endArrow=open;html=1;strokeWidth=2;strokeColor=#2E7D32;dashed=1;dashPattern=5 5" target="uc2">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="edge19" edge="1" parent="1" source="uc9" style="endArrow=open;html=1;strokeWidth=2;strokeColor=#2E7D32;dashed=1;dashPattern=5 5" target="uc2">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="note1" parent="1" style="shape=note;whiteSpace=wrap;html=1;backgroundOutline=1;darkOpacity=0.05;fillColor=#FFF9C4;strokeColor=#F57F17;fontSize=11;align=left" value="&lt;b&gt;User Flow:&lt;/b&gt;&lt;br&gt;1. Enter email/phone&lt;br&gt;2. System scans&lt;br&gt;3. View results&lt;br&gt;4. Request deletion" vertex="1">
+          <mxGeometry height="120" width="140" x="30" y="520" as="geometry" />
+        </mxCell>
+        <mxCell id="note2" parent="1" style="shape=note;whiteSpace=wrap;html=1;backgroundOutline=1;darkOpacity=0.05;fillColor=#E1BEE7;strokeColor=#4A148C;fontSize=11;align=left" value="&lt;b&gt;OSINT Integration:&lt;/b&gt;&lt;br&gt;• Searches publicly available&amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp;resources&lt;br&gt;• Searches breach DBs&lt;br&gt;• Returns breach list:&lt;br&gt;  - Breach names&lt;br&gt;  - Leaked data types&lt;br&gt;  - Record counts" vertex="1">
+          <mxGeometry height="140" width="160" x="1450" y="600" as="geometry" />
+        </mxCell>
+        <mxCell id="note3" parent="1" style="shape=note;whiteSpace=wrap;html=1;backgroundOutline=1;darkOpacity=0.05;fillColor=#FFE0B2;strokeColor=#E65100;fontSize=11;align=left" value="&lt;b&gt;Cache Strategy:&lt;/b&gt;&lt;br&gt;• Check MongoDB first&lt;br&gt;• If found &amp;amp; &amp;lt; 1 hour&lt;br&gt;• Return cached data&lt;br&gt;• Saves searching costs" vertex="1">
+          <mxGeometry height="110" width="140" x="1450" y="210" as="geometry" />
+        </mxCell>
+        <mxCell id="title" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=24;fontStyle=1;fontColor=#01579B" value="FindMyLeak - Use Case Diagram" vertex="1">
+          <mxGeometry height="40" width="500" x="550" y="20" as="geometry" />
+        </mxCell>
+        <mxCell id="legend-box" parent="1" style="swimlane;whiteSpace=wrap;html=1;fillColor=#FFFDE7;strokeColor=#F57F17;fontSize=12;fontStyle=1" value="Legend" vertex="1">
+          <mxGeometry height="140" width="150" x="30" y="920" as="geometry" />
+        </mxCell>
+        <mxCell id="legend1" parent="legend-box" style="ellipse;whiteSpace=wrap;html=1;fillColor=#66BB6A;strokeColor=#2E7D32;fontSize=10" value="" vertex="1">
+          <mxGeometry height="25" width="40" x="10" y="30" as="geometry" />
+        </mxCell>
+        <mxCell id="legend1-text" parent="legend-box" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=10" value="Frontend" vertex="1">
+          <mxGeometry height="25" width="80" x="55" y="30" as="geometry" />
+        </mxCell>
+        <mxCell id="legend2" parent="legend-box" style="ellipse;whiteSpace=wrap;html=1;fillColor=#FFB74D;strokeColor=#E65100;fontSize=10" value="" vertex="1">
+          <mxGeometry height="25" width="40" x="10" y="60" as="geometry" />
+        </mxCell>
+        <mxCell id="legend2-text" parent="legend-box" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=10" value="Backend" vertex="1">
+          <mxGeometry height="25" width="80" x="55" y="60" as="geometry" />
+        </mxCell>
+        <mxCell id="legend3" parent="legend-box" style="ellipse;whiteSpace=wrap;html=1;fillColor=#F48FB1;strokeColor=#880E4F;fontSize=10" value="" vertex="1">
+          <mxGeometry height="25" width="40" x="10" y="90" as="geometry" />
+        </mxCell>
+        <mxCell id="legend3-text" parent="legend-box" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=10" value="Database" vertex="1">
+          <mxGeometry height="25" width="80" x="55" y="90" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

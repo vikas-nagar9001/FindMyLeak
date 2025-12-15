@@ -1,6 +1,8 @@
+import { config } from './config';
+
 // API Configuration
 export const API_CONFIG = {
-  BASE_URL: 'https://findmyleak.onrender.com',
+  BASE_URL: config.API_BASE_URL,
   ENDPOINTS: {
     SCAN: '/api/scan',
     DELETE_REQUEST: '/api/delete-request'
@@ -14,7 +16,7 @@ export const apiCall = async (endpoint: string, options: RequestInit = {}) => {
   const defaultOptions: RequestInit = {
     headers: {
       'Content-Type': 'application/json',
-      'Authorization': 'Basic ' + btoa('vikas:vikas123'),
+      'Authorization': 'Basic ' + btoa(`${config.API_USERNAME}:${config.API_PASSWORD}`),
     },
     ...options,
   };
